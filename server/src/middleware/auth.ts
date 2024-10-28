@@ -5,6 +5,22 @@ interface JwtPayload {
   username: string;
 }
 
-export const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
-  // TODO: verify the token exists and add the user data to the request object
+ const authenticateToken = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const token = req.header('Authorization')?.split(' ')[1];
+  if (!token) return res.status(401).json({ message: 'Access token missing' });
+  
+    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
+      if (err) {
+        return res.status(403).json({message: 'invalid Token'}); // Forbidden
+      }
+
+      req.user = user as JwtPayload;
+      return next();
+    });
 };
+
+export default authenticateToken;

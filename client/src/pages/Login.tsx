@@ -1,13 +1,18 @@
 import { useState, FormEvent, ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Auth from '../utils/auth';
 import { login } from "../api/authAPI";
+import { UserLogin } from "../interfaces/UserLogin";
 
 const Login = () => {
-  const [loginData, setLoginData] = useState({
+  const navigate = useNavigate();
+
+  const [loginData, setLoginData] = useState<UserLogin>({
     username: '',
     password: ''
   });
+  const  [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -22,7 +27,9 @@ const Login = () => {
     try {
       const data = await login(loginData);
       Auth.login(data.token);
+      navigate('/');
     } catch (err) {
+      setError('Failed to login');
       console.error('Failed to login', err);
     }
   };
@@ -45,7 +52,7 @@ const Login = () => {
           value={loginData.password || ''}
           onChange={handleChange}
         />
-        <button type='submit'>Submit Form</button>
+        <button type='submit'>Login</button>
       </form>
     </div>
     
