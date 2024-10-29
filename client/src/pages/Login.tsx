@@ -12,7 +12,6 @@ const Login = () => {
     username: '',
     password: ''
   });
-  const  [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -29,7 +28,6 @@ const Login = () => {
       Auth.login(data.token);
       navigate('/');
     } catch (err) {
-      setError('Failed to login');
       console.error('Failed to login', err);
     }
   };
