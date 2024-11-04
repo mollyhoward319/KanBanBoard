@@ -23,13 +23,13 @@ Type "npm run build && npm run start" to build and start the server.
 
 Create a .env file for the server that includes a username, password, and secret key for the database. 
 Login to the app with username and password and create, edit, and manage tasks as desired. Logout to remove JWT. 
-
+```md
+    ![Example Login Page:](assets/images/Screenshot1.png)
+    ```
 
 ```md
-    ![Example Login Page: ](assets/images/Screenshot1.png)
-
     ![Example KanBan Page:](assets/images/Screenshot2.png)
- ```
+    ```
  
 Deployed App on Render: [https://kanbanboard-454x.onrender.com/]
 
