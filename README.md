@@ -28,7 +28,7 @@ Login to the app with username and password and create, edit, and manage tasks a
     ![Example Login Page:](assets/images/Screenshot1.png)
   
     ![Example KanBan Page:](assets/images/Screenshot2.png)
-    ```
+```
  
 Deployed App on Render: [https://kanbanboard-454x.onrender.com/]
 
