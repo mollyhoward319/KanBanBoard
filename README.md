@@ -26,9 +26,7 @@ Login to the app with username and password and create, edit, and manage tasks a
 
 ```md
     ![Example Login Page:](assets/images/Screenshot1.png)
-    ```
-
-```md
+  
     ![Example KanBan Page:](assets/images/Screenshot2.png)
     ```
  
